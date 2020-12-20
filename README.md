@@ -9,7 +9,7 @@ Also, there's a free support if you have any problem when setting it up or if yo
 
 ## How to buy it
 Currently the plugin is in beta, it's free until its first stable release. Once released, you have to buy it or stop using the beta version.
-For more information and to get a beta version, please contact me on Discord (Zayceur#8704).
+For more information and to get a beta version, please contact me on this [Discord server](https://discord.gg/BYWrPX7erx).
 
 ## Support
-Support is available in french and english on Discord (Zayceur#8704).
+Support is available in french and english on [Discord](https://discord.gg/BYWrPX7erx).

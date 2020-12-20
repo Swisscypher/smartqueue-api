@@ -9,7 +9,7 @@ De plus, un support gratuit est disponible si vous avez le moindre soucis pour l
 
 ## Comment l'acheter
 Actuellement, le plugin est en version bêta, il est gratuit jusqu'à sa sortie officielle. Une fois sorti, vous devez l'acheter ou arrêter d'utiliser la version bêta.
-Pour plus d'informations et pour récupérer la version bêta, contactez-moi sur Discord (Zayceur#8704).
+Pour plus d'informations et pour récupérer la version bêta, contactez-moi sur ce [serveur Discord](https://discord.gg/UTr4frTxMS).
 
 ## Support
-Le support est disponible en français et en anglais sur Discord (Zayceur#8704).
+Le support est disponible en français et en anglais sur [Discord](https://discord.gg/UTr4frTxMS).
