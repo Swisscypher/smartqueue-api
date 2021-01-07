@@ -1,7 +1,12 @@
 package ch.swisscypher.smartqueue.spigot.api;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 
 public abstract class SmartQueue {
 
@@ -28,13 +33,40 @@ public abstract class SmartQueue {
     public abstract void removePlayerFromAllQueue(Player player);
 
     /**
+     * Check if a player is waiting inside a given queue
+     * Note : do not block the main thread when using this {@link CompletableFuture}
+     * @param player The player we want to check
+     * @param queue The queue we want to check
+     * @return true if the player is waiting inside the queue, false otherwise
+     */
+    public abstract CompletableFuture<Boolean> isPlayerInQueue(Player player, String queue);
+
+    /**
+     * Retrieve the position of a given player inside a given queue
+     * Note : do not block the main thread when using this {@link CompletableFuture}
+     * @param player The player whose position will be retrieved
+     * @param queue The queue inside which the player position will be retrieved
+     * @return The player position inside the given queue
+     */
+    public abstract CompletableFuture<Optional<Long>> getPlayerPositionInQueue(Player player, String queue);
+
+    /**
+     * Return all the players that are inside a queue.
+     * Warning, there is no guarantee the player is connected to this instance
+     * Note : do not block the main thread when using this {@link CompletableFuture}
+     * @param queue The queue name from which the players will be retrieved
+     * @return The list containing all the connected players
+     */
+    public abstract CompletableFuture<Optional<List<OfflinePlayer>>> getPlayersInQueue(String queue);
+
+    /**
      * Instance for the singleton implementation
      */
     private static SmartQueue instance;
 
     /**
      * getInstance for the singleton implementation
-     * @return The <code>SmartQueue</code> singleton instance
+     * @return The {@link SmartQueue} singleton instance
      */
     public static SmartQueue getInstance() {
         if(instance == null) {
