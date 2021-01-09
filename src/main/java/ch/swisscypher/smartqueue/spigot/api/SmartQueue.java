@@ -33,6 +33,20 @@ public abstract class SmartQueue {
     public abstract void removePlayerFromAllQueue(Player player);
 
     /**
+     * Activate or deactivate the given queue
+     * @param queue The queue we want to change the status
+     * @param status true in order to activate the queue, false to deactivate it
+     */
+    public abstract void setQueueStatus(String queue, boolean status);
+
+    /**
+     * Retrieve the status of the given queue
+     * @param queue The queue name we want the status
+     * @return true if the queue is activated, false otherwise
+     */
+    public abstract CompletableFuture<Optional<Boolean>> getQueueStatus(String queue);
+
+    /**
      * Check if a player is waiting inside a given queue
      * Note : do not block the main thread when using this {@link CompletableFuture}
      * @param player The player we want to check
