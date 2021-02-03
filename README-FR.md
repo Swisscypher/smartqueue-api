@@ -7,9 +7,8 @@ SmartQueue est un plugin Bungeecord/Spigot qui vous permet de créer des files d
 SmartQueue utilise une nouvelle technique jamais vue dans aucun plugin de file d'attente. Le code est fonctionne complètement en mode multi-thread et ne ralentit aucun de vos serveurs.
 De plus, un support gratuit est disponible si vous avez le moindre soucis pour le configurer ou si vous trouvez un bug.
 
-## Comment l'acheter
-Actuellement, le plugin est en version bêta, il est gratuit jusqu'à sa sortie officielle. Une fois sorti, vous devez l'acheter ou arrêter d'utiliser la version bêta.
-Pour plus d'informations et pour récupérer la version bêta, contactez-moi sur ce [serveur Discord](https://discord.gg/UTr4frTxMS).
+## Comment l'obtenir
+Vous pouvez récupérer la dernière version sur ce [serveur Discord](https://discord.gg/UTr4frTxMS).
 
 ## Support
 Le support est disponible en français et en anglais sur [Discord](https://discord.gg/UTr4frTxMS).
