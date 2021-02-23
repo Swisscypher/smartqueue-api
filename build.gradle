@@ -1,9 +1,53 @@
 plugins {
     id 'java'
+    id 'net.minecrell.licenser' version '0.4.1'
+    id 'com.github.breadmoirai.github-release' version '2.2.12'
 }
+
+group 'ch.swisscypher.smartqueue'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+apply plugin: "net.minecrell.licenser"
+apply plugin: "com.github.breadmoirai.github-release"
+
+compileJava {
+    dependsOn checkLicenses
+}
+
+license {
+    header = project.file("HEADER")
+    include("**/*.java")
+
+    newLine = true
+}
+
+def determineVersion = {
+    // get the name of the last tag
+    def version = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'describe', '--tags', '--first-parent', '--always'
+        standardOutput = version
+    }
+    version = version.toString().replaceAll("\\s", "").replaceAll("^v", "")
+
+    try {
+        exec {
+            commandLine("git", "diff", "--exit-code", "--quiet")
+        }
+    } catch (ignored) {
+        return "${version}.dirty"
+    }
+
+    return version
+}
+
+version = determineVersion()
+
+jar {
+    from("LICENSE")
+}
 
 repositories {
     mavenCentral()
@@ -27,4 +71,13 @@ test {
 jar {
     archiveBaseName = 'SmartQueue-API'
     archiveVersion = project.version
+    from("LICENSE")
+}
+
+tasks {
+    githubRelease {
+        token System.getenv("GITHUB_TOKEN").toString()
+        owner "swisscypher"
+        releaseAssets jar.archiveFile
+    }
 }
