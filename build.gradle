@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'net.minecrell.licenser' version '0.4.1'
+    id 'org.cadixdev.licenser' version '0.5.0'
     id 'com.github.breadmoirai.github-release' version '2.2.12'
 }
 
@@ -9,7 +9,7 @@ group 'ch.swisscypher.smartqueue'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-apply plugin: "net.minecrell.licenser"
+apply plugin: "org.cadixdev.licenser"
 apply plugin: "com.github.breadmoirai.github-release"
 
 compileJava {
@@ -44,10 +44,6 @@ def determineVersion = {
 }
 
 version = determineVersion()
-
-jar {
-    from("LICENSE")
-}
 
 repositories {
     mavenCentral()
