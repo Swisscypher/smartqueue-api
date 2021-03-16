@@ -64,10 +64,18 @@ test {
     useJUnitPlatform()
 }
 
+task javadocJar(type: Jar) {
+    from javadoc
+    archiveBaseName = 'SmartQueue-API'
+    archiveVersion = project.version
+    archiveClassifier.set('javadoc')
+}
+
 jar {
     archiveBaseName = 'SmartQueue-API'
     archiveVersion = project.version
     from("LICENSE")
+    dependsOn(javadocJar)
 }
 
 tasks {
