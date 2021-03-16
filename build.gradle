@@ -66,8 +66,8 @@ test {
 
 task javadocJar(type: Jar) {
     from javadoc
-    archiveBaseName = 'SmartQueue-API'
-    archiveVersion = project.version
+    archiveBaseName = ''
+    archiveVersion = ''
     archiveClassifier.set('javadoc')
 }
 
