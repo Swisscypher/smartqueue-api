@@ -23,11 +23,8 @@ jobs:
           server-id: ch.swisscypher.smartqueue # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-      - name: Build with Gradle
+      - name: Build Javadoc with Gradle
         run: gradle javadoc
-
-      - name: Get plugin version
-        uses: battila7/get-version-action@v2
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -37,7 +34,7 @@ jobs:
           aws-region: us-east-1
 
       - name: Copy javadoc to S3 with version
-        run: aws s3 sync ./build/docs/javadoc s3://doc.swisscypher.com/smartqueue/${{ steps.get_version.outputs.version }}/ --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
+        run: aws s3 sync ./build/docs/javadoc s3://doc.swisscypher.com/smartqueue/${{ env.version }}/ --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
 
       - name: Copy javadoc to S3 with latest
         run: aws s3 sync ./build/docs/javadoc s3://doc.swisscypher.com/smartqueue/latest/ --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
