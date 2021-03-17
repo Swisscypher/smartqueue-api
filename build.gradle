@@ -71,16 +71,10 @@ jar {
     from("LICENSE")
 }
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    archiveClassifier.set("javadoc")
-    archiveBaseName = ''
-    archiveVersion = ''
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives jar
-    archives javadocJar
+javadoc {
+    options {
+        links 'https://docs.oracle.com/javase/8/docs/api/'
+    }
 }
 
 tasks {
