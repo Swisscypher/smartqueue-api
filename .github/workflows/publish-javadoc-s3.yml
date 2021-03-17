@@ -33,8 +33,5 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Copy javadoc to S3 with version
-        run: aws s3 sync ./build/docs/javadoc s3://doc.swisscypher.com/smartqueue/${{ env.version }}/ --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
-
       - name: Copy javadoc to S3 with latest
         run: aws s3 sync ./build/docs/javadoc s3://doc.swisscypher.com/smartqueue/latest/ --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
