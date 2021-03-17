@@ -5,8 +5,8 @@ name: Release javadoc to S3
 
 on:
   push:
-    #tags:
-      #- v*
+    tags:
+      - v*
 
 jobs:
   build:
