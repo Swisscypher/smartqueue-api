@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.cadixdev.licenser' version '0.5.0'
     id 'com.github.breadmoirai.github-release' version '2.2.12'
+    id 'maven-publish'
 }
 
 group 'ch.swisscypher.smartqueue'
@@ -68,6 +69,12 @@ jar {
     archiveBaseName = 'SmartQueue-API'
     archiveVersion = project.version
     from("LICENSE")
+}
+
+javadoc {
+    options {
+        links 'https://docs.oracle.com/javase/8/docs/api/'
+    }
 }
 
 tasks {
